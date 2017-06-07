@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>分享图标</title>
+		<link rel="stylesheet" href="css/share.css" />
+		<script type="text/javascript">
+			window.onload=function(){
+				var wrap=document.getElementsByClassName("wrap")[0];
+				var timer=null;
+				wrap.onmouseover=function(){
+					startMove(11,0,this);
+				}
+				wrap.onmouseout=function(){
+					startMove(-11,-275,this);
+				}
+				function startMove(iSpeed,iTarget,obj){
+					clearInterval(timer);
+					timer=setInterval(function(){
+						if(obj.offsetLeft==iTarget){
+							clearInterval(timer);
+						}else{
+							obj.style.left=obj.offsetLeft+iSpeed+'px';
+						}
+						console.log(obj.offsetLeft);
+						console.log(iTarget);
+					},60);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		
+		<!--框-->
+		<div class="wrap">
+			<div class="header">
+				<p>分享到...</p>
+			</div>
+			<!--图标框-->
+			<div class="content">
+				<div class="top">
+					<a href="javascript:;">
+						<img src="img/weibo.gif">
+						<p id="word">腾讯微博</p>
+						<span id="line"> </span>
+					</a>
+					<a href="javascript:;">
+						<img src="img/2.gif">
+						<p id="word2">一键通</p>
+					</a>
+					<a href="javascript:;">
+						<img src="img/3.gif">
+						<p id="word3">新浪微博</p>
+					</a>
+				</div>
+				<div class="middle">
+					<ul id="pic">
+						<li><a href="javascript:;"><img src="img/8.png" />QQ空间</a></li>
+						<li><a href="javascript:;"><img src="img/9.png" />搜狐微博</a></li>
+						<li><a href="javascript:;"><img src="img/6.png" />新华微博</a></li>
+						<li><a href="javascript:;"><img src="img/10.png" />手机</a></li>
+						<li><a href="javascript:;"><img src="img/11.png" />网易微博</a></li>
+					</ul>
+					<ul id="pic2">
+						<li><a href="javascript:;"><img src="img/8.png" />QQ空间</a></li>
+						<li><a href="javascript:;"><img src="img/9.png" />搜狐微博</a></li>
+						<li><a href="javascript:;"><img src="img/6.png" />新华微博</a></li>
+						<li><a href="javascript:;"><img src="img/10.png" />手机</a></li>
+						<li><a href="javascript:;"><img src="img/11.png" />网易微博</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="footer">更多平台...
+				<p><a href="javascript">bShare</a></p>
+			</div>
+			<div class="share">
+				<p>分享到</p>
+			</div>
+		</div>
+		
+		<!--分享到-->
+		
+	</body>
+</html>

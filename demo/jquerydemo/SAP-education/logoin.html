@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		.box{
+			height: 1000%;
+			width: 100%;
+			position: absolute;
+			background: #000;
+			opacity: 0.6;
+			/*display: none;*/
+			z-index: 800;
+			}
+		.login{
+			width: 350px;
+			height: 300px;
+			border: 2px solid #ccc;
+			border-radius: 10px;
+			position: absolute;
+			/*display: none;*/
+			background: #FFFFFF;
+			text-align: center;
+			z-index: 800;
+		}
+		.sub-log{
+			width: 300px;
+			height: 260px;
+			padding: 20px 10px;
+			margin: 0 auto;
+			}
+		.login p{
+			font: 20px/40px "微软雅黑";
+			line-height: 40px;
+			margin-top: 30px;
+		}
+		.login input{
+			width: 200px;
+			height: 30px;
+			float: right;
+			margin-right: 18px;
+			}
+		.close{
+			width: 30px;
+			height: 30px;
+			background: #04aee6;
+			color: #FFFFFF;
+			text-align: center;
+			border: 2px solid #ccc;
+			border-radius: 10px;
+			position: absolute;
+			right: 0;
+			top: 0;
+			cursor: pointer;
+		}
+		.login .enter{
+			width: 300px;
+			height: 40px;
+			background: #5BC79D;
+			font: 20px/40px "微软雅黑";
+			opacity: 0.8;
+			/*border: none;*/
+			margin-top: 30px;
+		}
+		.enter:hover{background: #0f915f;}
+		.login a{
+			font: 15px/20px "微软雅黑";
+			color: #ccc;
+			display: inline-block;
+		}
+		.login a:hover{color: #00BFFF;}
+		/*.user{
+			width: 200px;
+			height: 60px;
+			float: right;
+			margin-top: -60px;
+		}	
+		.user li{
+			width: 60px;
+			height: 60px;
+			font: 12px/60px "微软雅黑";
+			color: #fff;
+			float: left;
+			text-align: center;
+		}
+		.user li:hover{background: #696969;}
+		.btn1,.btn2{cursor: pointer;}*/
+	</style>
+	</head>
+	<body>
+		<!--<ul class="user">
+			<li class="btn1">登录</li>
+			<li class="btn2"><a href="register.html"></a>注册</li>
+		</ul>-->
+		<!--登录弹出框-->
+<div class="box"></div><!--大背景-->
+	<div class="login">
+		<div class="sub-log">
+			<p>用户名：<input type="text"></input></p>
+			<p>密&nbsp;码：<input type="password"></input></p>
+			<button type="submit" class="enter" value="登录">登录</button>
+			<a href="#">忘记密码？</a>
+			<a href="#">免费注册</a>
+			<div class="close">x</div>
+	</div>
+</div>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script type="text/javascript">
+		$(function(){
+			//登录弹出框
+	$(".btn1").click(function(){  //点击登录按钮
+		$('.login').show();  //登录界面显示
+		$('.box').show()
+		$('.login').css('left',($(window).width()-$('.login').outerWidth())/2);//弹出框的位置定位
+		$('.login').css('top',($(window).height()-$('.login').outerHeight())/2);
+		
+		$('.close').click(function(){//点击关闭按钮
+			$('.login').fadeOut();//弹出框淡出
+			$('.box').fadeOut();
+		});
+	});
+	$(window).on('resize scroll',function(){//滚动鼠标弹出框位置不变
+		$('.login').css('left',($(window).width()-$('.login').outerWidth())/2);
+		$('.login').css('top',($(window).height()-$('.login').outerHeight())/2+$(window).scrollTop());
+	});
+		});
+	</script>
+	</body>
+</html>

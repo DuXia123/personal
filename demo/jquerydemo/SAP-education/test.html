@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.box{
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: #000;
+				opacity: 0.5;
+				/*display: none;*/
+				}
+				.login{
+					width: 500px;
+					height: 300px;
+					border: 2px solid #CCCCCC;
+					position: absolute;
+					/*display: none;*/
+					background: #ccc;
+					/*margin: 0 auto;*/
+				}
+				.close{
+					width: 30px;
+					height: 30px;
+					background: #757575;
+					color: #fff;
+					text-align: center;
+					border-radius: 5px;;
+					position: absolute;
+					right: 0;
+					top: 0;
+					cursor: pointer;
+				}
+		</style>
+	</head>
+	<body>
+		<!--<div class="cont-left">
+			<ul class="cont-txt">
+				<li id="text"><h3>课程分类</h3></li>
+				<li>编程、IT软件、计算机</li>
+				<li>设计、绘图、办公软件</li>
+				<li>英语、日语、韩语</li>
+				<li>营销、理财、专业技能</li>
+				<li>会计师、建造师</li>
+				<li>高考、四六级、计算机考试</li>
+				<li>雅思、托福</li>
+				<li>生活、文化、兴趣</li>
+			</ul>
+		<div class="sub-cont">
+			<h3>IT/计算机/互联网</h3>
+			<dl>
+				<dt><a href="#">编程语言：</a></dt>
+				<dd><a href="#">JAVA</a> <a href="#">C/C++</a> <a href="#">Javascript</a> <a href="#">HTML5</a></dd>
+				<dd><a href="#">JAVA</a> <a href="#">C/C++</a> <a href="#">Javascript</a> <a href="#">HTML5</a></dd>
+				<dd></dd>
+				<dd></dd>
+			</dl>
+		</div>
+	</div>-->
+	<!--<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script type="text/javascript">
+		$(function(){
+			var arr=['墨家','墨子'];
+			var str="[";
+			$.each(arr,function(p1,p2){
+				str+="{p1:"+p1+","+"p2:"+p2+"},";
+				console.log(str);
+			});
+			str=str.substring(0,str.length-1)+"]";
+			console.log(str);
+		});
+	</script>-->
+	<input type="button" value="登录" id="btn1"/>
+	<div class="box">
+		<div class="login">
+			<p><input type="text"></input></p>
+			<p><input type="password"></input></p>
+			<div class="close">x</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#btn1").click(function(){
+				$(".login").show();
+				$(".box").show();
+				$(".login").css('left',$(window).width()-$('.login').outerWidth())/2;
+				$(".login").css('top',$(window).height()-$('.login').outerHeight())/2;
+				
+				$('.close').click(function(){
+					$('.login').fadeOut();
+				});
+			});
+			$(window).on('resize scroll',function(){
+				$('.login').css('left',($(window).width()-$('.login').outerWidth())/2);
+				$('.login').css('left',($(window).height()-$('.login').outerHeight())/2);
+			});
+		});
+	</script>
+	</body>
+</html>

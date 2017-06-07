@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{
+				width: 100px;
+				height: 100px;
+				/*border:1px solid #000;*/
+				margin: 300px auto;
+				position:relative;
+				
+			}
+			.box{
+				-webkit-transform-style:preserve-3d;
+				transition: 5s;
+				transform-origin: left;
+				transform: rotateY(10deg);
+				-webkit-animation: zhuan 6s linear infinite;
+			}
+			@-webkit-keyframes zhuan{
+				from{transform: rotateX(10deg) rotateY(10deg);}
+				to{transform:rotateX(360deg) rotateY(360deg);}
+			}
+			.box div{
+				width: 100px;
+				height: 100px;
+				background: rgba(204,204,204,0.3);
+				text-align: center;
+				font:50px/100px "microsoft sans serif";
+				position:absolute;
+			}
+			.box div:nth-of-type(1){
+				left:-100px;
+				background: #0073B3;
+				transform-origin: right;
+				transform: rotateY(90deg);
+			}
+			.box div:nth-of-type(2){
+				top:-100px;
+				background: #07BBEE;
+				transform-origin: bottom;
+				transform: rotateX(-90deg);
+			}
+			.box div:nth-of-type(3){
+				left:100px;
+				background: #07BBEE;
+				transform-origin: left;
+				transform: rotateY(-90deg);
+				/*transform: translateX(-100px);*/
+			}
+			.box div:nth-of-type(4){
+				top:100px;
+				background: #4B0082;
+				transform-origin:top;
+				transform: rotateX(90deg);
+			}
+			
+			.box div:nth-of-type(5){
+				transform: translateZ(100px);
+			}
+			.box div:nth-of-type(6){
+			
+			}
+			/*.box:hover{
+				transform: rotateX(180deg);
+			}*/
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+		    <div class="box">
+		        <div>1</div>
+		        <div>2</div>
+		        <div>3</div>
+		        <div>4</div>
+		        <div>5</div>
+		       <div>6</div>
+		    </div>
+		</div>
+	</body>
+</html>

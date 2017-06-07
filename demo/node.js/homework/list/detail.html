@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../public/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="../public/style.css">
+    <style>
+        .content a{
+            color: #000;
+        }
+        .daohang{
+            height: 50px;
+            line-height: 50px;
+            margin-right: 50px;
+            display:block;
+        }
+        .daohang a{
+            color: #000;
+            margin-right: 20px;
+        }
+        .edit-detail{
+            font: 20px/30px "微云雅黑";
+            color:#fff;
+            font-weight:500;
+        }
+    </style>
+</head>
+<body>
+<div class="main-body">
+    <div class="container">
+        <div class="nav text-right daohang">
+            <div class="container">
+                <a class="navbar-brand">博客后台管理</a>
+                <a href="/admin/change" class="edit"> 编写博客</a>
+                <a href="/admin/list">文章列表</a>
+            </div>
+        </div>
+        <div class="content-main">
+            <div class="row margin-b-30">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="banner-main-home">
+                        <div class="banner-main-home-text">
+                            <div class="heading">
+                                <h2>{{item.tit}}</h2>
+                                <p class="text-uppercase">{{item.intro}}</p>
+                            </div>
+                            <div class="desc">
+                                <p>{{item.detail}}</p>
+                            </div>
+                            <a class="edit-detail" href="/admin/edit?id={{item._id.toString()}}">编辑</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

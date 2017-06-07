@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台列表</title>
+    <link rel="stylesheet" type="text/css" href="../public/bootstrap.min.css" >
+</head>
+<body>
+
+<div class="container" id="artList">
+    <div class="navbar-form navbar-left" role="search" id="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="button" class="btn btn-default">搜索</button>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <th>文章标题</th>
+            <th>文章介绍</th>
+            <!--<th>文章详情</th>-->
+            <th>删改</th>
+        </thead>
+        <tbody id="tBody">
+        {% for item in listData %}
+            <tr>
+                <td>{{item.tit}}</td>
+                <td>{{item.intro}}</td>
+                <!--<td >{{item.detail}}</td>-->
+                <td >
+                    <a href="/admin/edit?id={{item._id.toString()}}">编辑</a>
+                    <button class="btn btn-danger" data-id="{{item._id.toString()}}">删除</button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+        <ul class="pagination" id="page">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% for i in listTab %}
+            <li><a class="roll-page" href="/admin/list?page={{i}}">{{i}}</a></li>
+            {% endfor %}
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<script type="text/javascript" src="/public/js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="/public/js/Article.js"></script>
+</body>
+</html>

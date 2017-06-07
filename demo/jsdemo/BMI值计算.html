@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>体重计算</title>
+		<style type="text/css">
+			#box1{
+				width: 1000px;
+				height: 100px;
+				margin: 0 auto;
+			}
+			#result{
+				width: 1000px;
+				height: 100px;
+			}
+			#jieguo{
+				background: lightblue;
+			}
+			#js{
+				width: 1000px;
+				height: 200px;
+			}
+			#start{
+				margin-left:40px ;
+			}
+			#remove{
+				margin-left:40px ;
+			}
+			#word1{
+				margin: 0 40px;
+			}
+			span{
+				display: block;
+				width: 200px;
+				height: 20px;
+				border: 1px solid #000;
+			}
+			th{
+				background: yellow;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oStart=document.getElementById("start");
+				var oRemove=document.getElementById("remove");
+				var oJieguo=document.getElementById("jieguo");
+				var oTall=document.getElementById("tall");
+				var oHeight=document.getElementById("height");
+				oStart.onclick=function(){
+					oJieguo.innerHTML=parseFloat(oHeight.value/(oTall.value*oTall.value)*10000);
+				}
+				oRemove.onclick=function(){
+					oJieguo.innerHTML="";
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			<div id="js">
+				<p>快看看自己的BMI是否在理想范围内吧！</p>
+				<p>身高:
+					<input type="text" id="tall" value="" />
+					&nbsp;cm
+				</p>
+				<button id="start">开始计算</button>
+				<br />
+				<p>体重
+					<input type="text" id="height" value="" />
+					&nbsp;kg
+				</p>
+				<button id="remove">清除重算</button>
+			</div>
+			<div id="result">
+				<p id="word1">你的BMI为</p>
+				<span id="jieguo"></span>
+			</div>
+			<div id="cankao">
+				<table id="box2" cellpadding="2px" border=""1px>
+					<tr>
+						<th></th>
+						<th>身体质量指数(BMI)<br/>(kg/m2)</th>
+						<th>腰围<br/>(cm)</th>
+					</tr>
+					<tr>
+						<td>体重过轻</td>
+						<td>BMI<18.5</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>正常范围</td>
+						<td>18.5≦BMI<18.5</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>超常范围</td>
+						<td>
+							<p>过重：24≦BMI<27</p>
+							<p>轻度肥胖：27≦BMI<30</p>
+							<p>中度肥胖：30≦BMI<35</p>
+							<p>重度肥胖：BMI≧35</p>
+						</td>
+						<td>
+							<p>男性：≧90公分</p>
+							<p>女性：≧80公分</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

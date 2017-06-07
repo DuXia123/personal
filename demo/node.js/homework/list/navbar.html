@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑</title>
+    <link rel="stylesheet" type="text/css" href="/public/bootstrap.min.css" >
+    <style>
+        .container .detailtxt{
+            height: 300px;
+            resize: none;
+        }
+        .btncont{margin: 20px 0;}
+        .content a{
+            color: #000;
+        }
+        .daohang{
+            height: 50px;
+            line-height: 50px;
+            margin-right: 50px;
+            display:block;
+        }
+        .daohang a{
+            color: #000;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="nav text-right daohang">
+    <div class="container">
+        <a class="navbar-brand">博客后台管理</a>
+        <a href="/admin/change" class="edit"> 编写博客</a>
+        <a href="/admin/list">文章列表</a>
+    </div>
+</div>
+{% block content %}
+
+{% endblock %}
+
+<script type="text/javascript" src="/public/js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="/public/js/Article.js"></script>
+</body>
+</html>

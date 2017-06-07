@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>属性读写操作注意事项1</title>
+	<style type="text/css">
+		/*p{
+			font-size: 13px;
+		}*/
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBtn1=document.getElementById("btn1");
+			var oBtn2=document.getElementById("btn2");
+			var oP=document.getElementById("p1");
+			var num=12;
+			
+			oBtn1.onclick=function(){
+				//num=num+1;
+				//num=num+2;
+				num ++;//每次递增1个数
+				//oP.style.font-size js中不允许出现“-”;
+				//font-size  fontSize
+				//padding-top paddingTop
+				//margin-left marginLeft
+				oP.style.fontSize=num+"px";
+				console.log(num);
+				if(num>20){
+					oP.style.fontSize=20+"px";
+					num=20;
+				}
+				
+			}
+			oBtn2.onclick=function(){
+				num--;
+				oP.style.fontSize=num+"px";
+				
+				if(num<10){
+					oP.style.fontSize=10+"px";
+					num=10;
+				}
+				console.log(num);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="A+" />
+	<input type="button" id="btn2" value="A-" />
+	<p id="p1">
+		2016年5月25日，李克强参观贵州大数据成果展时，
+		“货车帮”负责人介绍，他们通过互联网把全国30万货主和170万货车司机相联，
+		打造覆盖全国的公路物流信息化平台，降低空驶率达6%。总理称赞道，你们做的事很有意义，
+		大数据、物联网等新技术最终都要为“人”服务。
+		2016年7月20日，李克强在国务院常务会议上强调：
+		“推进互联网+物流，既是发展新经济，又能提升传统经济。”
+		他还说：“要推动互联网、大数据、云计算等信息技术与物流深度融合，
+		推动物流业乃至中国经济的转型升级，这是物流业的‘供给侧改革’”。
+	</p>
+</body>
+</html>

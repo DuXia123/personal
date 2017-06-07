@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动态生成导航栏</title>
+		<style type="text/css">
+		*{margin: 0;padding: 0;list-style: none;}
+			.wrap{
+				width: 100%;
+				height: 60px;
+				background: #62AB00;
+				margin-top: 50px;
+			}
+			.nav{
+				width: 1000px;
+				margin: 0 auto;
+				text-align: center;
+				color: #fff;
+			}
+			.nav li{
+				display: inline-block;
+				width: 100px;
+				line-height: 60px;
+				float: left;
+			}
+			.nav li:hover{
+				background: #528E01;
+			}
+			input{
+				clear: both;
+				display: block;
+				margin-top: 20px;
+			}
+			.nav .hc{
+				width: 100px;
+				background: #528E01;
+				line-height: 60px;
+				}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<ul class="nav">
+				<li class="hc">首页</li>
+				<!--<li>首页</li>-->
+			</ul>
+			
+			<input type="button" id="btn1" value="新增" />
+			<input type="button" id="btn2" value="删除" />
+		</div>
+		<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+		<script type="text/javascript">
+		
+			$(function(){
+				var str=["新房","二手房","租房","商铺写字楼","海外地产","楼讯","房价","问答"];
+				var i=0;
+				var on=true;
+				$("#btn1").click(function(){
+					if(on){
+						$(".nav").append($("<li>"+str[i]+"</li>"));
+						i++;
+						if(i==str.length){
+							on=false;
+						}
+					}else{
+						alert('已加载完毕');
+					}
+				});
+				$("#btn2").click(function(){
+					$(".nav li").eq(i).remove();
+					i--;
+				});
+			});
+		</script>
+	</body>
+	
+</html>

@@ -1,0 +1,151 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+.wrap{
+	width: 270px;
+	height: 230px;
+	border: 5px solid #7a7a7a;
+	border-radius: 5px 5px 5px 5px;
+	margin-top: 100px;
+	left: -275px;
+	position: absolute;
+	
+}
+.header{
+	width: 270px;
+	height: 25px;
+	background: #f2f2f2;
+	line-height: 20px;
+}
+.content{
+	width: 258px;
+	height: 244px;
+}
+.top{
+	width: 242px;
+	height: 56px;
+	position: relative;
+}
+.top a{
+	display: block;
+}
+#line{
+	width: 242px;
+	height: 1px;
+	background: #CCCCCC;
+	display: block;
+	margin-left: 15px;
+	position: absolute;
+}
+#word{
+	color: #000000;
+	font-size: 15px;
+	margin-left: 25px;
+}
+#word2{
+	color: #000000;
+	font-size: 15px;
+	margin-left: 110px;
+	margin-top: -17px;
+}
+#word3{
+	color: #000000;
+	font-size: 15px;
+	margin-left: 180px;
+	margin-top: -17px;
+}
+.top a:nth-child(1) img{
+	margin-left: 45px;
+	margin-top: 5px;
+}
+.top a:nth-child(2) img{
+	margin-left: 120px;
+	margin-top: -27px;
+	float: left;
+}
+.top a:nth-child(3) img{
+	margin-left: 200px;
+	margin-top: -27px;
+	float: left;
+}
+.top a:hover{
+	background: #CCCCCC;
+}
+
+.middle{
+	width: 242px;
+	height: 200px;
+}
+#pic{
+	width: 121px;
+	height: 130px;
+}
+#pic li{
+	width: 121px;
+	height: 22px;
+	font: 15px/16px "微软雅黑";
+}
+#pic li:hover{
+	background: #CCCCCC;
+}
+#pic li a img{
+	width: 16px;
+	height: 16px;
+}
+#pic li a{
+	margin-left: 20px;
+}
+#pic2{
+	width: 121px;
+	height: 130px;
+	float: right;
+	margin-top: -130px;
+}
+#pic2 li{
+	width: 121px;
+	height: 22px;
+	font: 15px/16px "微软雅黑";
+}
+#pic2 li a img{
+	width: 16px;
+	height: 16px;
+}
+#pic2 li a{
+	margin-left: 35px;
+}
+#pic2 li:hover{
+	background: #CCCCCC;
+}
+.footer{
+	width: 270px;
+	height: 25px;
+	background: #f2f2f2;
+	margin-top: -64px;
+	font: 15px/25px "微软雅黑";
+}
+.footer p a{
+	float: right;
+	font: 15px/25px "微软雅黑";
+	margin-top: -25px;
+}
+.footer p a:hover{
+	color: #FF0000;
+	top: -25px;
+}
+.share{
+	width: 25px;
+	height: 90px;
+	background: #ff9900;
+	border-radius: 0 5px 5px 0;
+	color: #fff;
+	text-align: center;
+	top: 75px;
+	right: -25px;
+	float: left;
+	position: absolute;
+	display: block;
+}
+

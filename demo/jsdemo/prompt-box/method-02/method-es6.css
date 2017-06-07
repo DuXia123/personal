@@ -1,0 +1,103 @@
+.wrap{
+	width: 500px;
+	padding: 20px;
+	margin: 100px auto;
+}
+h2{
+	text-align: center;
+}
+
+.btn{
+	width: 200px;
+	height: 50px;
+	margin: 20px;
+	line-height: 50px;
+	font-size: 20px;
+	text-align: center;
+	border:0;
+	border-radius: 5px;
+}
+
+.mask{
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+}
+
+.dialog{
+	background:#fff;
+    padding: 10px;
+    border-radius: 5px;
+	height: auto;
+	position:fixed; 
+}
+
+.dialog-title{ 
+	font-size: 20px;
+	font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 40px;
+    line-height: 40px;
+    color: #000;
+	border-bottom: 1px dashed #ccc;
+}
+
+.dialog-discription{
+	padding: 14px 0 10px 0;
+    font-size: 14px;
+    text-indent: 16px;
+    line-height: 1.6;
+}
+
+.dialog-operation{
+    float: right;
+    height: 36px;
+}
+
+.btn-span{
+	display: inline-block;
+	padding:6px 10px ;
+	border-radius: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: normal;
+    margin-right: 10px;
+	
+}
+		
+			
+/*场景考虑*/
+.dialog-title.default{
+	color: #ccc;
+	border-bottom: 1px dashed #ccc;
+}
+.btn-span.default{background: #ccc;}
+.dialog-title.error{
+	color: #D9534F;
+	border-bottom: 1px dashed #D9534F;
+}
+.btn-error,.btn-span.error{background: #D9534F;}
+.dialog-title.warn{
+	color: #FFBD7A;
+	border-bottom: 1px dashed #FFBD7A;
+	}
+.btn-warn,.btn-span.warn{background: #FFBD7A;}
+.dialog-title.info{
+	color: #4D96DF;
+	border-bottom: 1px dashed #4D96DF;
+}
+.btn-info,.btn-span.info{
+	background: #4D96DF;
+}
+.dialog-title.log{
+	color: #21B384;
+	border-bottom: 1px dashed #21B384;
+}
+.btn-log,.btn-span.log{
+	background:#21B384;
+}

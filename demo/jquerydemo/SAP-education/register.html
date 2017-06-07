@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>注册页面</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<style type="text/css">
+		*{padding: 0;margin: 0;list-style: none;text-decoration: none;}
+		.register{
+			width: 1200px;
+			height: 700px;
+			margin: 0 auto;
+			border: 1px solid #000000;
+			
+		}
+		.nav{
+			width: 1200px;
+			border:none;
+			margin: 0 auto;
+			box-shadow: 0 0 2px #CCCCCC;
+		}
+		.head-left{
+			height: 80px;
+			display: inline-block;
+			float: left;
+		}
+		.head-left img{
+			width: 150px;
+			height: 79px;
+			margin-left: 20px;
+		}
+		.head-left p{
+			font: 20px/30px "微软雅黑";
+			color: #000;
+			display: block;
+			float: right;
+			margin-right: 170px;
+			border-left: 1px solid #757575;
+			padding: 10px;
+			margin-top: 15px;
+		}
+		.head-right{
+			display: block;
+			float: right;
+			height: 80px;
+			margin-right: 100px;
+			font: 13px/30px "宋体";
+			color: #666666;
+		}
+		.head-right span{
+			line-height: 80px;
+		}
+		.head-right button{
+			width: 60px;
+			height: 30px;
+			font: 14px/30px "微软雅黑";
+			color: #000;
+		}
+		.content{
+			width: 50%;
+			margin: 100px auto;
+		}
+		.pass-label{
+			font-size: 20px;
+		}
+		.protocal{
+			font-size: 12px;
+		}
+		p #kuang1,#kuang2,#kuang3,#kuang4,#kuang5{
+			width: 300px;
+			height: 35px;
+			font-size: 15px;
+		}
+		.submit{
+			width: 300px;
+			height: 40px;
+			background: #5BC79D;
+			font: 20px/40px "微软雅黑";
+			opacity: 0.8;
+			margin: 0 50px;
+			border: transparent;
+		}
+		.submit:hover{background: #0f915f;}
+		#input{
+			width: 100px;
+			height: 35px;
+		}
+		#code-y{
+			width: 80px;
+			height: 35px;
+			background: #ccc;
+			border: transparent;
+			font: 15px/35px "宋体";
+			font-style: italic;
+			color: #008000;
+			margin-left:80px ;
+			margin-top:8px ;
+		}
+		/*.interst label{color: #aaa;}*/
+		/*input[type="checkbox"]:checked + label{color: steelblue;}*/
+		</style>
+		
+	</head>
+	<body onload="createcode()">
+		<div class="register">
+			<div class="nav">
+			<div class="head-left">
+				<a href="index.html"><img src="img/sap.jpg" /></a>
+				<a href="#"><p>sap账号注册</p></a>
+			</div>
+			<div class="head-right">
+				<span>我已注册，现在就</span>
+				<a href="#"><button class="login">登录</button></a>
+			</div>
+			</div>
+			<div class="content">
+				<p>
+					<label class="pass-label">用户名</label>
+					<input type="text" placeholder="以字母开头4-8位" id="kuang1"/>
+					<span></span>
+				</p>
+				<p>
+					<label class="pass-label">手机号</label>
+					<input type="text" placeholder="请输入手机号码" id="kuang2"/>
+					<span></span>
+				</p>
+				<p>
+					<label class="pass-label">邮  &nbsp;&nbsp;&nbsp;箱</label>
+					<input type="text" placeholder="请输入邮箱" id="kuang3"/>
+					<span></span>
+				</p>
+				<p>
+					<label class="pass-label">验证码</label>
+					<input type="text" placeholder="请输入验证码" id="input" / >
+					<span></span><br />
+					<input type="button" id="code-y" onblur="createcode()" title="点击更换验证码" />
+					<input type="button" onclick="validate()" value="确定" id="que"/>
+				</p>
+				<p>
+					<label class="pass-label">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+					<input type="password" placeholder="请设置密码" id="kuang4"/>
+					<span></span>
+				</p>
+				<p>
+					<label class="pass-label">再次确认密码</label>
+					<input type="password" placeholder="请再次输入密码" id="kuang5"/>
+					<span></span>
+				</p>
+				<p>
+					<label class="pass-label">兴&nbsp;&nbsp;&nbsp;&nbsp;趣
+					<form action="" method="post">
+						<label><input type="checkbox" value="FI"/>FI</label>
+						<label><input type="checkbox" value="FI"/>CO</label>
+						<label><input type="checkbox" value="FI"/>MM</label>
+						<label><input type="checkbox" value="FI"/>SD</label>
+						<label><input type="checkbox" value="FI"/>PP</label>
+						<label><input type="checkbox" value="FI"/>PM</label>
+						<label><input type="checkbox" value="FI"/>CRM</label>
+						<label><input type="checkbox" value="FI"/>HANA</label>
+						<label><input type="checkbox" value="FI"/>ERP</label>
+					</form>
+					</label>
+				</p>
+				<p class="check">
+					<input type="checkbox" checked="checked"/>
+					<label class="protocal">阅读并接受
+						<a href="/">《SAP用户协议》</a>
+					</label>
+				</p>
+				<p>
+					<input type="submit" value="注册" class="submit"/>
+				</p>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var username=document.getElementById("kuang1");
+			var phone=document.getElementById("kuang2");
+			var email=document.getElementById("kuang3");
+			var pswd1=document.getElementById("kuang4");
+			var pswd2=document.getElementById("kuang5");
+			var checkcode=document.getElementById("code-y"); //获取到验证码id
+			var Input=document.getElementById("input");
+			//验证验证码
+			var code;//在全局定义验证码
+			function createcode(){
+				code="";
+				var codelength=4;//验证码长度
+				var random=new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G',
+				'H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');	//验证码随机数
+				for(var i=0;i<codelength;i++){
+					var index=Math.floor(Math.random()*36);//取得随机数索引0-35
+					code +=random[index];
+				}
+				checkcode.value=code;//赋值给验证码
+			}
+			//判断验证码
+			function validate(){
+				var checkC=Input.nextElementSibling;
+				console.log(checkC);
+				var inputcode=document.getElementById("input").value.toUpperCase();//获取到输入的验证码
+				if(inputcode.length<=0){     //输入长度小于4则返回输入验证码错误
+					checkC.innerHTML="请输入验证码";
+					checkC.style.color="#FFCC33";
+				}else if(inputcode !=code){
+					checkC.innerHTML="验证码输入错误";
+					checkC.style.color="#f00";
+					createcode();  //刷新验证码
+					document.getElementById("input")
+				}else{
+					checkC.innerHTML="ok";
+					checkC.style.color="#008000";
+				}
+			}
+			//验证用户名
+			username.onblur=function(){
+				var namemes=username.nextElementSibling;
+				if(/^[a-z][a-zA-Z_0-9]{4,8}$/.test(this.value)){
+					namemes.innerHTML="ok";
+					namemes.style.color="green";
+				}else{
+					namemes.innerHTML="用户名格式不正确";
+					namemes.style.color="#f00";
+				}
+			}
+			//验证手机号码
+			phone.onblur=function(){
+				var phonemes=phone.nextElementSibling;
+				if(/^1[3,4,5,7,8]+[0-9]{8}$/.test(this.value)){
+					phonemes.innerHTML="ok";
+					phonemes.style.color="green";
+				}else{
+					phonemes.innerHTML="手机号码格式不正确";
+					phonemes.style.color="#f00";
+				}
+			}
+			//验证邮箱
+			email.onblur=function(){
+				var emailmes=email.nextElementSibling;
+				if(/^\w+@\w+\.+\w+$/.test(this.value)){
+					emailmes.innerHTML="ok";
+					emailmes.style.color="green";
+				}else{
+					emailmes.innerHTML="请输入正确的Email格式";
+					emailmes.style.color="#f00";
+				}
+			}
+			//验证密码
+			pswd1.onblur=function(){
+				var pswd1mes=pswd1.nextElementSibling;
+				if(/^\w{6,18}$/.test(this.value)){
+					pswd1mes.innerHTML="ok";
+					pswd1mes.style.color="green";
+				}else{
+					pswd1mes.innerHTML="请输入正确的密码格式";
+					pswd1mes.style.color="#f00";
+				}
+			}
+			//验证密码是否一致
+			pswd2.onblur=function(){
+				var pw1=document.getElementById("kuang4").value;
+				var pw2=document.getElementById("kuang5").value;
+				var pswd1mes=pswd1.nextElementSibling;
+				var pswd2mes=pswd2.nextElementSibling;
+				if(pw2==pw1){
+					pswd2mes.innerHTML="ok";
+					pswd2mes.style.color="green";
+				}else{
+					pswd2mes.innerHTML="密码不一致";
+					pswd2mes.style.color="#f00";
+				}
+			}
+		</script>
+		<!--<script src="js/bootstrap.js"></script>-->
+	</body>
+</html>

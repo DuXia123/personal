@@ -1,0 +1,16 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<div class="container" id="artEdit">
+    <h3>文章标题</h3>
+    <input class="form-control tit" placeholder="请输入标题" />
+    <h3>文章简介</h3>
+    <input class="form-control intro" placeholder="请输入简介"/>
+    <h3>文章详情</h3>
+    <textarea class="form-control detailtxt detail" placeholder="请输入文章详情">
+        {{editData.detail}}
+    </textarea>
+    <div class="text-center btncont" >
+        <button class="btn btn-primary" data-id="{{editData.id.toString()}}">保存</button>
+    </div>
+</div>
+{% endblock %}

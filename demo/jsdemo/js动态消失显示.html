@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			 p{
+				font: 25px/50px "微软雅黑";
+				margin-left: 10px;
+			}
+			span{
+				width: 30px;
+				height: 25px;
+				display: block;
+				float: right;
+				margin: 0 10px;
+				text-align: center;
+			}
+			#btn{
+				width: 100px;
+				height: 30px;
+				font: 20px/20px "微软雅黑";
+				background: #FF99FF;
+			}
+			#bian{
+				width: 100px;
+				height: 100px;
+				border: 2px solid #000000;
+				display: none;
+			}
+			#tan{
+				width: 300px;
+				height: 250px;
+				border: 2px solid #0066CC;
+				float: right;
+				display: none;
+				position: absolute;
+				top: 100px;
+				left: 500px;
+			}
+			li{
+				width: 215px;
+				height: 50px;
+				list-style: none;
+			}
+			ul{
+				padding: 20px;
+			}
+			#red{
+				background: #FF0000;
+			}
+			#yellow{
+				background: yellow;
+			}
+			#blue{
+				background: #0066CC;
+			}
+			#kuan1{
+				background: gray;
+			}
+			#kuan2{
+				background: gray;
+			}
+			#kuan3{
+				background: gray;
+			}
+			#gao1{
+				background: gray;
+			}
+			#gao2{
+				background: gray;
+			}
+			#gao3{
+				background: gray;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBian=document.getElementById("bian");
+				var oTan=document.getElementById("tan");
+				var oBtn1=document.getElementById("btn1");
+				var oBtn2=document.getElementById("btn2");
+				var oBtn3=document.getElementById("btn3");
+				var oRed=document.getElementById("red");
+				var oYellow=document.getElementById("yellow");
+				var oBlue=document.getElementById("blue");
+				var oKuan1=document.getElementById("kuan1");
+				var oKuan2=document.getElementById("kuan2");
+				var oKuan3=document.getElementById("kuan3");
+				var oGao1=document.getElementById("gao1");
+				var oGao2=document.getElementById("gao2");
+				var oGao3=document.getElementById("gao3");
+				oBtn1.onclick=function(){
+					oBian.style.display="block";
+					oTan.style.display="block";
+				}
+				oBtn2.onclick=function(){
+					oTan.style.display="none";
+					oBian.style.width="100px";
+					oBian.style.height="100px";
+					oBian.style.background="none";
+				}
+				oBtn3.onclick=function(){
+					oTan.style.display="none";
+				}
+				oRed.onclick=function(){
+					oBian.style.background="red";
+				}
+				oYellow.onclick=function(){
+					oBian.style.background="yellow";
+				}
+				oBlue.onclick=function(){
+					oBian.style.background="blue";
+				}
+				oKuan1.onclick=function(){
+					oBian.style.width="200px";
+				}
+				oKuan2.onclick=function(){
+					oBian.style.width="300px";
+				}
+				oKuan3.onclick=function(){
+					oBian.style.width="400px";
+				}
+				oGao1.onclick=function(){
+					oBian.style.height="200px";
+				}
+				oGao2.onclick=function(){
+					oBian.style.height="300px";
+				}
+				oGao3.onclick=function(){
+					oBian.style.height="400px";
+				}
+				}
+			
+		</script>
+	</head>
+	<body>
+		<div class="bodyb">
+			<p>请为下面的DIV设置样式：</p>
+				<input type="button" id="btn1" value="点击" />
+			
+				<div id="bian"></div>
+				<div id="tan">
+				<ul>
+					<li>颜色：
+						<span id="red">红</span>
+						<span id="yellow">黄</span>
+						<span id="blue">蓝</span>
+					</li>
+					<li>宽(px)：
+						<span id="kuan1">200</span>
+						<span id="kuan2">300</span>
+						<span id="kuan3">400</span>
+					</li>
+					<li>高(px)：
+						<span id="gao1">200</span>
+						<span id="gao2">300</span>
+						<span id="gao3">400</span>
+					</li>
+						<input type="button" id="btn2" value="取消" />
+				     	<input type="button" id="btn3" value="确定" />
+				</ul>
+			</div>	
+	    </div>
+		
+		
+	</body>
+</html>

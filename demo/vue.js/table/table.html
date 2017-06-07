@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>appUsers</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <style>
+    #app {
+      margin-top: 20px;
+    }
+    .pagination{
+    	margin: 0 auto;
+    }
+		.page{
+			float:left;
+		}
+		.input-group{
+			width:200px;
+			float:left;
+		}
+  </style>
+ 	<script src="vue.js"></script>
+  <script src="vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="container">
+    	
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <tr v-for="list of data">
+						<td v-for="item of list">{{item}}</td>
+					</tr>
+        </tbody>
+      </table>
+      
+      <div class="row">
+	      <nav aria-label="Page navigation" class="page col-lg-8">
+				  <ul class="pagination pagination-lg">
+				    <li @click="turnPage(-1)">
+				      <a href="javascript:void(0);" aria-label="Previous" >
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <li v-for="index in indexs" @click="btnClick(index)" v-bind:class="{ active: currentPage == index }">
+				    	<a href="javascript:void(0);">
+				    		{{ index}}
+				    	</a>
+				    </li>
+				    <li  @click="turnPage(1)">
+				      <a href="javascript:void(0);" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				   
+				  </ul>
+				</nav>
+				<div class="input-group input-group-lg col-lg-4">
+					  <span class="input-group-addon">前往</span>
+					  <input type="text" class="form-control" v-model="jPage" @keyup.enter="jumpToPage">
+					  <span class="input-group-addon">页</span>
+				</div>
+			</div>
+    </div>
+  </div>
+
+
+  <script>
+  const vm = new Vue({
+    el: '#app',
+    data () {
+      return {
+        lists:[],   //存放ajax数据的空数组
+        totalPage: 0, // 总页数
+        currentPage:1, // 当前页
+        jPage: 1 ,// 跳转到某页
+        pageCount:4 //显示的按钮数
+      }
+    },
+    watch:{//想要动态监测表格
+    	limit:{
+    		handler:function(){//监控limit这个属性，当这个属性对应的值发生变化 就会执行函数
+    		},
+    		deep:true
+    	}
+    },
+    computed: {
+      data () {
+        return this.paginate(this.lists)
+      },
+      limit () {  //页面显示条数
+      	
+      	let viewHeight=document.documentElement.clientHeight;  //视图可见高度
+      	let trHeight=document.querySelector('tr').offsetHeight;   //tr表格一格高度
+      	
+      	//console.log(Math.floor( viewHeight/trHeight));
+      	return Math.floor( viewHeight/trHeight);  //向下取整
+      },
+      indexs() {
+      	let st = 1,  //测试
+					end = this.totalPage,  //总页码数
+					cur = this.currentPage,   //当前页码数
+					ajcn = this.pageCount,   //页面展现出的页码
+					arr = [],   //存放页码空数组
+					left = Math.floor(ajcn / 2),  //4/2=2
+					right = ajcn - left  //4-2	
+					
+				if (end == 0 || cur == 0) {
+					return arr;
+				} else {
+					//console.log(st, end, cur, left, right);
+					arr.push(st);
+					//console.log(st+1, cur-left);
+					
+					if (st + 1 < cur - left) {
+						arr.push('...');
+					}
+					console.log(arr,st,left,right,cur)
+					for (let i = Math.max(cur - left, st + 1); i <= cur - 1; ++i) {
+						arr.push(i);
+					}
+					console.log(arr,st,left,right,cur)
+					if (cur != st) {
+						arr.push(cur);
+					}
+					
+					for (let i = cur + 1; i <= cur + right && i <= end - 1 ; ++i) {
+						arr.push(i);
+					}
+					
+					if (cur + right < end - 1) {
+						arr.push('...');
+					}
+					
+					if (end != cur) {
+						arr.push(end);
+					}
+					return arr;
+				}	
+			}
+    },
+    created() { //钩子函数，组件创建完成时调用get方法获取数据
+								this.get();
+							},
+    methods: {
+			get () { //发送get请求  请求json数据
+							this.$http.get('test.json').then(function(res) {
+								//alert(res.body);   
+								//console.log(res.body);
+								this.lists = res.body;
+							}, function() {
+								alert('请求失败处理'); //失败处理
+							});
+						},
+      paginate (arr) {   //分页方法
+        // totalPage
+        this.totalPage = Math.ceil(arr.length / this.limit)  //总的分页数
+        let page = this.currentPage-1   //page=0
+        let curLimit = this.limit
+        // 返回指定条数的数组
+        arr = arr.slice(curLimit * page, curLimit * (page + 1))  //数组0-20条
+        //console.log(arr);
+        return arr
+      },
+      btnClick (index) {//页码跳转
+      	if(!isNaN(index)){
+      		this.currentPage=index;
+	      	this.jPage = index;   //输入框与跳转页码一致
+	      	console.log(typeof index);
+      	}
+      	
+      },
+      
+      turnPage (num) {//上一页 下一页
+        if (num === 1) {
+          if (this.currentPage >this.totalPage-1) {
+//        	alert(1)
+            return
+          } else {
+            this.currentPage++;
+            //alert(2)
+            this.jPage++;
+          }
+        } else {
+          if (this.currentPage === 1) {
+            return false;
+          } else {
+            this.currentPage-- 
+            this.jPage--
+          }
+        }
+      },
+      
+       jumpToPage () {//跳转
+        let jPage = this.jPage-1
+        if (jPage < 0 || jPage > this.totalPage) {
+          alert('你的页码超出了最大范围')
+        } else {
+          this.currentPage = jPage+1
+        }
+      },
+    }
+  })
+</script>
+</body>
+</html>

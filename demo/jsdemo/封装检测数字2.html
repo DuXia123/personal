@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type=text/javascript>
+		window.onload=function(){
+		var txt=document.getElementsByTagName("input");
+		var div=document.getElementById("div1");
+		txt[1].onclick=function(){
+			var str=txt[0].value;
+			var str1='';
+			for(var i=0;i<=str.length;i++){
+			
+			str1+=String.fromCharCode(str.charCodeAt(i)+1000);
+			}
+				div.innerHTML=str1;
+			}
+		}
+		</script>
+		<!--柳䩓婅蠌גּ喕喕坾䩸ﬤ啁啁倩䨢﬙瘣媧偰薙䨦戎䰉诳ﬤ䨥懅坾䩸﬙-->
+	</head>
+	<body>
+		<input type="text" style="width: 500px;height: 30px;" />
+		<input type="button" value="加密" />
+		<hr />
+		<div id="div1"></div>
+	</body>
+</html>

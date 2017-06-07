@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>时钟</title>
+		<style type="text/css">
+			h1{
+				margin: 100px;
+				text-align: center;
+				font-size: 50px;
+			}
+		</style>
+		<script type="text/javascript">
+			 window.onload=function(){
+			 	var body=document.body;
+			 	var oh1=document.getElementsByTagName("h1")[0];
+			 	var img=document.getElementsByTagName("img");
+			 	//定时器
+			 	setInterval(fnTime,1000);
+			 	//调用定时器
+			 	fnTime();
+			 	//给定时器添加函数
+			 	function fnTime(){
+			 		//获取当前时间
+			 		var mytime=new Date();
+			 		//获取小时
+			 		var hour=mytime.getHours();
+			 		//获取分钟
+			 		var min=mytime.getMinutes();
+			 		//获取秒
+			 		var sec=mytime.getSeconds();
+			 		//定义变量str来记录时间
+			 		var str=toTwo(hour)+toTwo(min)+toTwo(sec);
+			 		
+			 		//oh1.innerHTML=str;
+			 		//for循环 更换图片 随下标数目而更换对应的数字图片
+			 		for(var i=0;i<str.length;i++){
+			 			img[i].src='img/'+str.charAt(i)+'.JPG';
+			 		}
+			 	}
+			 };
+			 //在小时分秒位一位时前面加0
+			 function toTwo(n){
+			 	return n<10? '0'+n:''+n;
+			 }
+		</script>
+	</head>
+	<body>
+		<h1></h1><!--记录-->
+		<!--小时，分，秒 6张图片-->
+		<img src="img/0.JPG" />
+		<img src="img/0.JPG" />
+		<img src="img/0.JPG" />
+		<img src="img/0.JPG" />
+		<img src="img/0.JPG" />
+		<img src="img/0.JPG" />
+	</body>
+</html>

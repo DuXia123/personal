@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>自动生成V字</title>
+    <style>
+        ul{ position:relative;}
+        li{ width:40px; height:40px; background:red; list-style:none; text-align:center; line-height:40px; font-size:30px; color:#fff; position:absolute;}
+    </style>
+</head>
+<body>
+<input id="btn1" type="button" value="点击生成" />
+<ul id="list"></ul>
+</body>
+</html>
+<script type="text/javascript">
+    window.onload = function () {
+        var aUl = document.getElementById("list");
+        var aLi = aUl.getElementsByTagName('li');
+        var aBtn = document.getElementById("btn1");
+        var num = 5;
+        var sum = Math.floor(num / 2);
+        var add = 0;
+        for(var i=0; i<5; i++) {
+            var j = 40*i;
+            var k = i<=sum?j:(num-1-i)*40;
+            aUl.innerHTML += '<li style="left:'+k+'px; top:'+j+'px;">'+i+'</li>';
+        }
+        aBtn.onclick = function () {
+            aUl.innerHTML = '';
+            add ++;
+            for(var i=0; i<5; i++) {
+                var j = i*40;
+                if(add % 4 === 1){
+                    var k = i<=sum?j:(num-1-i)*40;
+                    aUl.innerHTML += '<li style="left:'+j+'px; top:'+k+'px;">'+i+'</li>';
+                }else if(add % 4 ===2){
+                    var k= i<=sum? (num-1-i)*40:j;
+                    aUl.innerHTML += '<li style="left:'+k+'px; top:'+j+'px;">'+i+'</li>';
+                }
+                else if(add % 4 ===3){
+                    var k = i<=sum?(num-1-i)*40:j;
+                    aUl.innerHTML += '<li style="left:'+j+'px; top:'+k+'px;">'+i+'</li>';
+                }else if(add % 4 ===0){
+                    var k = i<=sum?j:(num-1-i)*40;
+                    aUl.innerHTML += '<li style="left:'+k+'px; top:'+j+'px;">'+i+'</li>';
+                }
+            }
+        }
+    }
+</script>

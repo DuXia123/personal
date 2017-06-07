@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="normal.css" />
+		<script src="normal.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				function $(myclass){
+					return document.querySelector(myclass);
+				}
+				
+				//第一个实例
+				$('.btn-error').onclick=function(){
+					var m1=new Message();
+					 m1.init({//配置参数
+				      title:'我是默认的提示标题',
+				      text:'我也是默认的内容',
+				      type:'error',
+				      w : 300,
+				      dir:"center"
+				    })
+				}
+				
+				//第二个实例
+				$('.btn-warn').onclick=function(){
+					var m2=new Message();
+					 m2.init({//配置参数
+				      title:'我是第二个提示框',
+				      text:'这次位置不同咯！',
+				      w : 600,
+				      type:'warn',
+				      dir:'right'
+				    })
+				}
+				
+				
+				//第三个实例
+				$('.btn-info').onclick=function(){
+					var m3=new Message();
+					 m3.init({//配置参数
+				      title:'我是info',
+				      text:'是不是角度有不同了呢！',
+				      w : 300,
+				      type:'info',
+				      dir:'left'
+				    })
+				}
+				
+				//第四个实例
+				$('.btn-log').onclick=function(){
+					var m4=new Message();
+					 m4.init({//配置参数
+				      title:'我是log',
+				      text:'yeah, i get it',
+				      w : 400,
+				      type:'log',
+				      dir:'center'
+				    })
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<h2>使用原生js完成一个消息提示框</h2>
+			<button class="btn btn-error">Show error message</button>
+			<button class="btn btn-warn">Show warn message</button>
+			<button class="btn btn-info">Show info message</button>
+			<button class="btn btn-log">Show log message</button>
+		</div>
+	</body>
+</html>

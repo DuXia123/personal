@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>广告淡入淡出</title>
+		<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+		<script type="text/javascript">
+			//$(function(){
+				//$("span").on("click",function(){
+					//点击子元素，关闭父级
+					//$(this).parent().css('display','none');
+					
+				//});
+				//最开始广告不存在，页面打开后猜出现，页面加载几秒后才出现
+				//slidedown出现 up消失 fadein 淡入效果
+				$(document).ready(function(){
+					$(".ad").slideDown(3000).slideUp(3000).fadeIn(3000)
+					.children("span").on("click",function(){
+						$(this).parent().fadeOut(800);
+					});
+				});
+				
+			//});
+		</script>
+		<style type="text/css">
+			.ad{
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				border: 1px solid #ccc;
+				display: none;
+			}
+			.ad img{
+				width: 230px;
+				height: 120px;
+				display: block;
+			}
+			.ad span{
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				background: url(img/4.png) no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="ad">
+			<a><img src="img/3.jpg" /></a>
+			<span></span>
+		</div>
+	</body>
+</html>

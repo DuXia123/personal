@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".go").bind('click',function(){
+					$("#go").animate({'width':500,'height':500},5000);
+					
+				});
+				//按钮stop按下后图像动画将停止
+				$(".stop").bind('click',function(){
+					$("#go").stop();
+				});
+			});
+		</script>
+		<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			background: #FFA500;
+		}
+			
+		</style>
+	</head>
+	<body>
+		<button class="go">按钮1</button>
+		<button class="stop">按钮2</button>
+		<div id="go"></div>
+	</body>
+</html>
